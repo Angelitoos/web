@@ -1,0 +1,197 @@
+/* Estilos normalon ps */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Estilo para el headrrrr */
+.head {
+    background-color: #0b3e57;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 70px;
+    width: auto;
+}
+
+/* Estilo del menú de navegación */
+.navbar {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+}
+
+.navbar a {
+    font-family: 'Roboto', sans-serif;
+    color: #a6a6a6;
+    padding: 18px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    font-size: 18px;
+}
+
+.navbar a:hover {
+    background-color: #066b637b;
+}
+
+/* Sección de detalles de productos */
+.productos-detalles {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.producto-info h1 {
+    color: #0b3e57;
+    text-align: center;
+    font-size: 2em;
+}
+
+.producto-info img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.producto-info p {
+    font-size: 1.1em;
+    text-align: center;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-bottom: 30px;
+}
+
+/* Sección de variaciones de productos */
+.variaciones {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.variantes {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.variantes:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.variantes h3 {
+    color: #0b3e57;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+.variantes p {
+    margin: 5px 0;
+}
+
+.variantes p:first-of-type {
+    font-weight: bold;
+    color: #066b637b;
+}
+
+.variantes p:last-of-type {
+    font-style: italic;
+}
+
+/* Botón CTA */
+.cta-button {
+    background-color: #0b3e57;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.1em;
+    margin-top: 30px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #066b637b;
+}
+
+/* Footer */
+footer {
+    background-color: #0b3e57;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Media Queries para pantallas pequeñas osease la herramienta adaptativa ps */
+@media (max-width: 768px) {
+    /* Ajustar la navegación en pantallas pequeñas */
+    .navbar {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        width: 100%;
+        margin-top: 20px;
+        position: absolute;
+        top: 80px; /* Ajustar para que no se solape con el header */
+        left: 0;
+        background-color: #0b3e57;
+        border-top: 1px solid #a6a6a6;
+    }
+
+    
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        color: white;
+    }
+
+    .hamburger i {
+        font-size: 30px;
+    }
+
+  */
+    .navbar a {
+        font-size: 1.2rem;
+        padding: 15px;
+        width: 100%;
+        text-align: center;
+    }
+
+ 
+    .navbar.active {
+        display: flex !important;
+    }
+}
+

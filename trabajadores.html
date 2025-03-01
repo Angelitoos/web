@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Trabajadores</title>
+    <link rel="stylesheet" href="trabajadores.css">
+    
+    
+</head>
+<body>
+    <div class="head">
+        <div class="logo">
+            <img src="Añadir texto.png"  alt="logo">
+            
+        </div>
+        <nav class="navbar">
+            <a href="index.html">Inicio</a>
+            <a href="Vacaciones.html">Vacaciones</a>
+            <a href="Calculadora.html">Nomina</a>
+        </nav>
+
+
+    <h1>Registro de Trabajadores</h1>
+
+    <h2>Lista de Trabajadores</h2>
+    <table id="tablaTrabajadores">
+        <thead>
+            <tr>
+                <th>Matrícula</th>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Antigüedad</th>
+                <th>Puesto</th>
+                <th>Sueldo</th>
+                <th>Estudios</th>
+                <th>Carrera o Cursos</th>
+                <th>Numero de Seguridad Social</th>
+                <th>Acciones</th> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" id="matricula" placeholder="Matrícula"></td>
+                <td><input type="text" id="nombre" placeholder="Nombre"></td>
+                <td><input type="number" id="edad" placeholder="Edad"></td>
+                <td><input type="text" id="antiguedad" placeholder="Antigüedad"></td>
+                <td><input type="text" id="puesto" placeholder="Puesto"></td>
+                <td><input type="number" id="sueldo" placeholder="Sueldo"></td>
+                <td><input type="text" id="estudios" placeholder="Estudios"></td>
+                <td><input type="text" id="carrera" placeholder="Carrera o Cursos"></td>
+                <td><input type="text" id="NoSeguridadSocial" placeholder="No."></td>
+                <td><button onclick="agregarTrabajador()">Agregar Trabajador</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        
+        function agregarTrabajador() {
+           
+            const matricula = document.getElementById('matricula').value;
+            const nombre = document.getElementById('nombre').value;
+            const edad = document.getElementById('edad').value;
+            const antiguedad = document.getElementById('antiguedad').value;
+            const puesto = document.getElementById('puesto').value;
+            const sueldo = document.getElementById('sueldo').value;
+            const estudios = document.getElementById('estudios').value;
+            const carrera = document.getElementById('carrera').value;
+            const NoSeguridadSocial = document.getElementById('NoSeguridadSocial').value;
+
+            
+            if (matricula && nombre && edad && antiguedad && puesto && sueldo && estudios&& NoSeguridadSocial) {
+                
+                const tabla = document.getElementById('tablaTrabajadores').getElementsByTagName('tbody')[0];
+
+                
+                const nuevaFila = tabla.insertRow();
+
+                
+                nuevaFila.insertCell(0).textContent = matricula;
+                nuevaFila.insertCell(1).textContent = nombre;
+                nuevaFila.insertCell(2).textContent = edad;
+                nuevaFila.insertCell(3).textContent = antiguedad;
+                nuevaFila.insertCell(4).textContent = puesto;
+                nuevaFila.insertCell(5).textContent = sueldo;
+                nuevaFila.insertCell(6).textContent = estudios;
+                nuevaFila.insertCell(7).textContent = carrera;
+                nuevaFila.insertCell(8).textContent = NoSeguridadSocial;
+
+                const celdaAcciones = nuevaFila.insertCell(9);
+                const botonCopiar = document.createElement('button');
+                botonCopiar.textContent = 'Copiar Matrícula y Nombre';
+                botonCopiar.onclick = function() {
+                    copiarDatos(matricula, nombre);
+                };
+                celdaAcciones.appendChild(botonCopiar);
+
+              
+                document.getElementById('matricula').value = '';
+                document.getElementById('nombre').value = '';
+                document.getElementById('edad').value = '';
+                document.getElementById('antiguedad').value = '';
+                document.getElementById('puesto').value = '';
+                document.getElementById('sueldo').value = '';
+                document.getElementById('estudios').value = '';
+                document.getElementById('carrera').value = '';
+                document.getElementById('NoSeguridadSocial').value = '';
+            } else {
+                alert('Por favor, complete todos los campos.');
+            }
+        }
+
+        
+        function copiarDatos(matricula, nombre) {
+            const textoACopiar = `Matrícula: ${matricula}, Nombre: ${nombre}`;
+           
+            const inputTemporal = document.createElement('input');
+            inputTemporal.value = textoACopiar;
+            document.body.appendChild(inputTemporal);
+
+         
+            inputTemporal.select();
+            document.execCommand('copy');
+
+           
+            document.body.removeChild(inputTemporal);
+
+            alert('Matrícula y Nombre copiados al portapapeles');
+        }
+    </script>
+
+</body>
+</html>

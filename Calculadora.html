@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Nómina para Varios Trabajadores</title>
+    <link rel="stylesheet" href="calculadora.css">
+</head>
+<body>
+    
+    <div class="parlar">
+        <div class="logo">
+            <img src="Añadir texto.png" alt="logo">
+        </div>
+        <nav class="barista">
+            
+            <a href="index.html">Inicio</a>
+            <a href="Vacaciones.html">Vacaciones</a>
+            <a href="trabajadores.html">Trabajadores</a>
+        </nav>
+    </div>
+
+    <div class="head">
+        <h1>Calculadora de Nómina</h1>
+    </div>
+
+    <div class="form-container">
+        <div class="form-group">
+            <label for="matricula">Matrícula del Trabajador:</label>
+            <input type="text" id="matricula" placeholder="Ingrese matrícula">
+        </div>
+        <div class="form-group">
+            <label for="nombre">Nombre del Trabajador:</label>
+            <input type="text" id="nombre" placeholder="Ingrese nombre">
+        </div>
+        <div class="form-group">
+            <label for="tipoSalario">Tipo de Salario:</label>
+            <select id="tipoSalario">
+                <option value="7">Semanal</option>
+                <option value="15">Quincenal</option>
+                <option value="30">Mensual</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="salario">Salario:</label>
+            <input type="number" id="salario" placeholder="Ingrese salario">
+        </div>
+        <div class="form-group">
+            <label for="horasJornada">Horas de Jornada:</label>
+            <input type="number" id="horasJornada" placeholder="Horas de jornada laboral" value="8">
+        </div>
+        <div class="form-group">
+            <label for="diaslaborables">Días Laborables:</label>
+            <input type="number" id="diaslaborables" placeholder="Días Laborables">
+        </div>
+        <div class="form-group">
+            <label for="diasDescanso">Días de Descanso:</label>
+            <input type="number" id="diasDescanso" placeholder="Días de descanso">
+        </div>
+        <div class="form-group">
+            <label for="diasDescansoTrabajado">Días de Descanso Trabajados:</label>
+            <input type="number" id="diasDescansoTrabajado" placeholder="Días de descanso trabajados" value="0">
+        </div>
+        <div class="form-group">
+            <label for="faltas">Faltas:</label>
+            <input type="number" id="faltas" placeholder="Número de faltas">
+        </div>
+        <div class="form-group">
+            <label for="domingosTrabajados">Número de Domingos Trabajados:</label>
+            <input type="number" id="domingosTrabajados" placeholder="Número de domingos trabajados" value="0">
+        </div>
+        <div class="form-group">
+            <label for="horasExtras">Horas Extras Trabajadas:</label>
+            <input type="number" id="horasExtras" placeholder="Horas extras trabajadas" value="0">
+        </div>
+        <div class="form-group">
+            <label for="fechaIngreso">Fecha de Ingreso:</label>
+            <input type="date" id="fechaIngreso" placeholder="Fecha de ingreso">
+        </div>
+        <div class="form-group">
+            <label for="antiguedad">Antigüedad:</label>
+            <select id="antiguedad">
+                <option value="1mes">1 mes</option>
+                <option value="2 meses">2 meses </option>
+                <option value="3 meses">3 meses </option>
+                <option value="4 meses">4 meses </option>
+                <option value="5 meses">5 meses </option>
+                <option value="6 meses">6 meses </option>
+                <option value="7 meses">7 meses </option>
+                <option value="8 meses">8 meses </option>
+                <option value="9 meses">9 meses </option>
+                <option value="10 meses">10 meses </option>
+                <option value="11meses">11 meses </option>
+                
+                <option value="1año">1 año o mas</option>
+            
+            </select>
+        </div>
+        <button onclick="agregarTrabajador()">Agregar Trabajador</button>
+    </div>
+
+    <div class="trabajadores">
+        <h2>Lista de Trabajadores</h2>
+        <table id="tablaTrabajadores">
+            <thead>
+                <tr>
+                    <th>Matrícula</th>
+                    <th>Nombre</th>
+                    <th>Horas Extras</th>
+                    <th>Salario Diario</th>
+                    <th>Salario Total</th>
+                    <th>Total Horas Extra</th>
+                    <th>Prima Dominical</th>
+                    <th>Descanso Trabajado</th>
+                    <th>Descuento por Faltas</th>
+                    <th>Total</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpoTabla"></tbody>
+        </table>
+    </div>
+
+    <div class="aguinaldo">
+        <h2>Calculadora de Aguinaldo</h2>
+        <table id="tablaAguinaldo">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Salario</th>
+                    <th>Aguinaldo</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpoTablaAguinaldo"></tbody>
+        </table>
+    </div>
+
+    <div class="salario-base-cotizacion">
+        <h2>Resultado del Salario Base de Cotización</h2>
+        <table id="tablaSalarioBase">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Días de Integración</th>
+                    <th>Factor de Integración</th>
+                    <th>Salario Base de Cotización</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpoTablaSalarioBase"></tbody>
+        </table>
+    </div>
+
+    <script>
+      function agregarTrabajador() {
+    const matricula = document.getElementById('matricula').value;
+    const nombre = document.getElementById('nombre').value;
+    const tipoSalario = document.getElementById('tipoSalario').value;
+    const salario = parseFloat(document.getElementById('salario').value);
+    const horasJornada = parseFloat(document.getElementById('horasJornada').value);
+    const diaslaborables = parseInt(document.getElementById('diaslaborables').value);
+    const diasDescanso = parseInt(document.getElementById('diasDescanso').value);
+    const diasDescansoTrabajado = parseInt(document.getElementById('diasDescansoTrabajado').value);
+    const faltas = parseInt(document.getElementById('faltas').value);
+    const domingosTrabajados = parseInt(document.getElementById('domingosTrabajados').value);
+    const horasExtras = parseInt(document.getElementById('horasExtras').value);
+
+    const fechaIngreso = document.getElementById('fechaIngreso').value;
+    const antiguedad = document.getElementById('antiguedad').value;
+
+    let salarioTotal = salario;
+    let salarioDiario = 0;
+    let primaDominical = 0;
+    let descansoTrabajado = 0;
+    let descuentoFaltas = 0;
+    let TotalHorasExtra = 0;
+
+    let total = salarioTotal;
+
+    if (tipoSalario === "7") {
+        salarioDiario = salario / 7;
+    } else if (tipoSalario === "15") {
+        salarioDiario = salario / 15;
+    } else if (tipoSalario === "30") {
+        salarioDiario = salario / 30;
+    }
+
+    if (domingosTrabajados > 0) {
+        primaDominical = salarioDiario * 0.25 * domingosTrabajados;
+    }
+
+    if (diasDescansoTrabajado > 0) {
+        descansoTrabajado = salarioDiario * diasDescansoTrabajado * 2;
+    }
+    let salarioxhora = salarioDiario / horasJornada;
+    let pasoUno = diasDescanso / diaslaborables;
+    let diastrabajados = diaslaborables - faltas;
+    let pasoDos = diastrabajados * pasoUno;
+    let pasoTres = salarioDiario * pasoDos;
+    let pasoCuatro = salarioDiario * diastrabajados;
+    let pasoCinco = pasoTres + pasoCuatro;
+
+    descuentoFaltas = salario - pasoCinco;
+
+    if (horasJornada <= 9) {
+        TotalHorasExtra = salarioxhora * horasExtras * 2;
+    } else if (horasJornada > 9) {
+        TotalHorasExtra = salarioxhora * horasExtras * 3;
+    }
+
+    total = salarioTotal + primaDominical + descansoTrabajado - descuentoFaltas + TotalHorasExtra;
+
+    let tbody = document.getElementById('cuerpoTabla');
+    let row = tbody.insertRow();
+    row.insertCell(0).textContent = matricula;
+    row.insertCell(1).textContent = nombre;
+    row.insertCell(2).textContent = horasExtras;
+    row.insertCell(3).textContent = salarioDiario.toFixed(2);
+    row.insertCell(4).textContent = salarioTotal.toFixed(2);
+    row.insertCell(5).textContent = TotalHorasExtra.toFixed(2);
+    row.insertCell(6).textContent = primaDominical.toFixed(2);
+    row.insertCell(7).textContent = descansoTrabajado.toFixed(2);
+    row.insertCell(8).textContent = descuentoFaltas.toFixed(2);
+    row.insertCell(9).textContent = total.toFixed(2);
+    row.insertCell(10).innerHTML = "<button onclick='eliminarFila(this)'>Eliminar</button>";
+
+    // Cálculo del aguinaldo
+    let aguinaldo = 0;
+    if (antiguedad === "1mes") {
+        aguinaldo = 30 * 15 / 365;
+    } else if (antiguedad === "2meses") {
+        aguinaldo = 60 * 15 / 365;
+    } else if (antiguedad === "3meses") {
+        aguinaldo = 90 * 15 / 365;
+    } else if (antiguedad === "4meses") {
+        aguinaldo = 120 * 15 / 365;
+    } else if (antiguedad === "5meses") {
+        aguinaldo = 150 * 15 / 365;
+    } else if (antiguedad === "6meses") {
+        aguinaldo = 180 * 15 / 365;
+    } else if (antiguedad === "7meses") {
+        aguinaldo = 210 * 15 / 365;
+    } else if (antiguedad === "9meses") {
+        aguinaldo = 240 * 15 / 365;
+    } else if (antiguedad === "10meses") {
+        aguinaldo = 270 * 15 / 365;
+    } else if (antiguedad === "11meses") {
+        aguinaldo = 300 * 15 / 365;
+    } else if (antiguedad === "1año") {
+        aguinaldo = salarioDiario * 15;
+    }
+
+    let tbodyAguinaldo = document.getElementById('cuerpoTablaAguinaldo');
+    let rowAguinaldo = tbodyAguinaldo.insertRow();
+    rowAguinaldo.insertCell(0).textContent = matricula;
+    rowAguinaldo.insertCell(1).textContent = salarioDiario.toFixed(2);
+    rowAguinaldo.insertCell(2).textContent = aguinaldo.toFixed(2);
+
+    let diasIntegracion = 30; 
+    let factorIntegracion = 1.045; 
+    let salarioBaseCotizacion = salarioTotal * factorIntegracion;
+    let tbodySalarioBase = document.getElementById('cuerpoTablaSalarioBase');
+    let rowSalarioBase = tbodySalarioBase.insertRow();
+    rowSalarioBase.insertCell(0).textContent = nombre;
+    rowSalarioBase.insertCell(1).textContent = diasIntegracion;
+    rowSalarioBase.insertCell(2).textContent = factorIntegracion.toFixed(3);
+    rowSalarioBase.insertCell(3).textContent = salarioBaseCotizacion.toFixed(2);
+}
+
+
+    </script>
+</body>
+</html>

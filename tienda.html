@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="tienda.css">
+    <title>Chapo Chip - Tienda de Tecnología</title>
+</head>
+<body>
+
+    
+    <div class="head">
+        <div class="logo">
+            <img src="3.png" alt="Logo Chapo Chip">
+        </div>
+        <nav class="navbar">
+            <a href="index.html">Inicio</a>
+            <a href="index.html">Contacto</a>
+            <a href="index.html">Misión</a>
+            <a href="index.html">Visión</a>
+            <a href="index.html">Valores</a>
+            <a href="Calculadora.html">Trabajadores</a>
+        </nav>
+        
+<div class="hamburger" id="hamburger">
+    <i class="fa fa-bars"></i>
+</div>
+
+    </div>
+
+ 
+    <section class="Rapiña">
+        <div class="Rapiña-contenido">
+            <h1>Bienvenido a Chapo Chip</h1>
+            <p>Soluciones tecnológicas avanzadas para el futuro de tu negocio.</p>
+            <a href="#productos" class="cta-button">Ver Productos</a>
+        </div>
+    </section>
+
+ 
+    <section id="productos" class="productos">
+        <h2>Nuestros Productos</h2>
+        <div class="producto-lista">
+            <div class="product-papu">
+                <i class="fa-solid fa-microchip"></i> 
+                <h3>Procesadores de Alto Rendimiento</h3>
+                <p>Potencia y eficiencia para tus aplicaciones más exigentes.</p>
+                <a href="Procesadores.html" class="product-link">Ver más</a>
+            </div>
+            <div class="product-papu">
+                <i class="fa-solid fa-sd-card"></i>
+                <h3>Tarjetas Gráficas para Gaming</h3>
+                <p>Disfruta de un rendimiento gráfico sin igual.</p>
+                <a href="TarjetasG.html" class="product-link">Ver más</a>
+            </div>
+            <div class="product-papu">
+                <i class="fa-solid fa-wifi"></i>
+                <h3>Servidores Web</h3>
+                <p>Alta fiabilidad y escalabilidad para tu negocio.</p>
+                <a href="ServidoresW.html" class="product-link">Ver más</a>
+            </div>
+            <div class="product-papu">
+                <i class="fa-light fa-router"></i>
+                <h3>Servidores Físicos</h3>
+                <p>Control total sobre tu infraestructura.</p>
+                <a href="#" class="product-link">Ver más</a>
+            </div>
+        </div>
+    </section>
+
+  
+    <footer>
+        <p>&copy; 2025 Chapo Chip - Todos los derechos reservados.</p>
+    </footer>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+       const navbar = document.querySelector('.navbar');
+    
+        hamburger.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+    </script>
+    
+</body>
+</html>

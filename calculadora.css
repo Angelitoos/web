@@ -1,0 +1,189 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+
+.parlar {
+    background-color: #066b62;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.parlar .logo img {
+    height: 80px;
+    width: 110px;
+    display: block;
+    margin: 0 auto;
+}
+
+nav.barista {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+nav.barista a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    border-radius: 4px;
+}
+
+nav.barista a:hover {
+    background-color: #46b6ad;
+}
+
+
+.head h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #066b62;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #46b6ad;
+}
+
+
+table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+td {
+    background-color: #fafafa;
+}
+
+td button {
+    background-color: #066b62;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+td button:hover {
+    background-color: #46b6ad;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+
+h2 {
+    font-size: 24px;
+    color: #333;
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+.aguinaldo, .salario-base-cotizacion {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.aguinaldo table,
+.salario-base-cotizacion table {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.aguinaldo th,
+.salario-base-cotizacion th {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.aguinaldo td,
+.salario-base-cotizacion td {
+    background-color: #fafafa;
+}
+
+.aguinaldo td button,
+.salario-base-cotizacion td button {
+    background-color: #066b62 ;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.aguinaldo td button:hover,
+.salario-base-cotizacion td button:hover {
+    background-color: #575757;
+}
