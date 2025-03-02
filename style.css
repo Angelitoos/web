@@ -64,7 +64,7 @@ body {
 
 /* Estilos del contenido */
 .content.header {
-    background-color: #066b62;
+     background: url(dsa.jpg) no-repeat center;
     color: white;
     padding: 125px 50px 40px;
     text-align: justify;
