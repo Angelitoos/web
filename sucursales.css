@@ -1,0 +1,222 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* ENCABEZADO */
+.head {
+    background-color: #0b3e57;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 70px;
+    width: auto;
+}
+
+/* MENÚ */
+.navbar {
+    display: flex;
+    list-style-type: none;
+}
+
+.navbar a {
+    font-family: 'Roboto', sans-serif;
+    color: #a6a6a6;
+    padding: 18px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    font-size: 18px;
+}
+
+.navbar a:hover {
+    background-color: #066b637b;
+}
+
+/* HAMBURGUESA */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger i {
+    color: white;
+    font-size: 30px;
+}
+
+/* CONTENIDO GENERAL */
+.productos-detalles {
+    padding: 100px 20px 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.producto-info h1 {
+    color: #0b3e57;
+    font-size: 2.4em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.producto-info img {
+    max-width: 600px;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.producto-info p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.producto-info h2 {
+    color: #0b3e57;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+/* TARJETAS DE SUCURSALES */
+.variables {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1400px;
+}
+
+.variantes {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 360px;
+    min-height: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.variantes:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.variantes h3 {
+    color: #0b3e57;
+    font-size: 1.3em;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.variantes p {
+    font-size: 1em;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* BOTÓN CTA */
+.cta-button {
+    background-color: #0b3e57;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.1em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #066b637b;
+}
+
+/* PIE DE PÁGINA */
+footer {
+    background-color: #0b3e57;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .navbar {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background-color: #0b3e57;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        border-top: 1px solid #a6a6a6;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    .navbar a {
+        padding: 15px;
+        font-size: 14px;
+        color: white;
+        text-align: center;
+        width: 100%;
+        border-top: 3px solid #444;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .producto-info h1 {
+        font-size: 2em;
+    }
+
+    .variables {
+        gap: 20px;
+    }
+
+    .variantes {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .producto-info h1 {
+        font-size: 1.6em;
+    }
+
+    .producto-info h2 {
+        font-size: 1.4em;
+    }
+
+    .variantes {
+        padding: 20px;
+    }
+
+    .variantes h3 {
+        font-size: 1.1em;
+    }
+
+    .variantes p {
+        font-size: 0.95em;
+    }
+}
