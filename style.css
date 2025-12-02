@@ -1,337 +1,476 @@
-/* Estilos normal */
+
+  :root {
+  --amarillo: #aadef3b0;
+  --amarillo-intenso: #f3aacb;
+  --cafe: #5edcfc;
+  --beige: #FFF7E0;
+  --texto: #3B2F2F;
+  --fondo-claro: #FFF9E9;
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+  background-color: var(--beige);
+  background-image:
+    radial-gradient(circle at 4px 4px, rgba(228, 173, 21, 0.603) 4px, transparent 4px),
+    url('abejas.png');
+  background-repeat: repeat;
+  background-size: 20px 20px, 50px 50px;
+  background-position: 0 0, 0 0;
+  background-attachment: fixed;
+  background-blend-mode: lighten;
+  color: var(--texto);
+  overflow-x: hidden;
+  position: relative;
 }
 
-/* Estilo para la head */
-.head {
-    background-color: #0b3e57;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+/* --- MENÚ LATERAL --- */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 260px;
+  height: 100%;
+  background: var(--cafe);
+  color: white;
+  padding-top: 80px;
+  transition: 0.4s ease;
+  z-index: 1000;
+  box-shadow: 5px 0 20px rgba(0,0,0,0.2);
+}
+.sidebar.active { left: 0; }
+
+.sidebar .logo {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: var(--amarillo);
+  font-weight: 900;
+  font-size: 1.4em;
 }
 
-.logo img {
-    height: 70px;
-    width: auto;
+.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: white;
+  padding: 15px 25px;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: background 0.3s, transform 0.3s;
+}
+.sidebar a:hover {
+  background-color: var(--amarillo);
+  color: var(--cafe);
+  transform: translateX(5px);
 }
 
-/* Estilo del men*/
-.navbar {
-    display: flex;
-    list-style-type: none;
-    margin: 0;
+/* --- BOTÓN HAMBURGUESA --- */
+.menu-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 45px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+.menu-btn div {
+  width: 100%;
+  height: 4px;
+  background-color: var(--amarillo-intenso);
+  border-radius: 10px;
+  transition: all 0.4s;
+}
+.menu-btn.active div:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+.menu-btn.active div:nth-child(2) { opacity: 0; }
+.menu-btn.active div:nth-child(3) { transform: rotate(-45deg) translate(8px, -8px); }
+
+/* --- CONTENIDO PRINCIPAL --- */
+.content {
+  padding: 100px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
 }
 
-.navbar a {
-    font-family: 'Roboto', sans-serif;
-    color: #a6a6a6;
-    padding: 18px 25px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    font-size: 18px;
+/* --- TÍTULO PRINCIPAL --- */
+h1 {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  text-align: center;
+  color: #f3aacb;
+  background-color: var(--cafe);
+  padding: 80px 20px;
+  font-size: clamp(2.2em, 5vw, 3.5em);
+  font-weight: 900;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  border-bottom: 8px solid var(--amarillo-intenso);
+  margin-bottom: 60px;
 }
 
-.navbar a:hover {
-    background-color: #066b637b;
+/* --- SECCIONES PRINCIPALES --- */
+section {
+  margin-bottom: 100px;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 50px;
+  flex-wrap: wrap;
 }
 
-/* Estilo del botón de hamburguesa */
-.hamburger {
-    display: none; /* timido por defecto */
-    cursor: pointer;
+/* --- SECCIÓN "¿QUÉ ES?" --- */
+#quees {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  text-align: center;
+  padding: clamp(80px, 15vw, 160px) 20px;
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.hamburger i {
-    color: white;
-    font-size: 30px;
+#quees::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 0;
 }
 
-/* Estilos del contenido */
-.content.header {
- background: url(dsa.jpg) no-repeat center;
-    color: white;
-    padding: 125px 50px 40px;
-    text-align: justify;
-    font-size: 18px;
+#quees h2 {
+  position: relative;
+  z-index: 1;
+  color: var(--amarillo-intenso);
+  font-size: clamp(2.2em, 5vw, 3.5em);
+  font-weight: 900;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
 }
 
-.content.header h2 {
-    font-size: 3em;
-    font-weight: bold;
-    margin-bottom: 20px;
+#quees p {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  color: white;
+  font-size: clamp(1em, 2vw, 1.2em);
+  line-height: 1.8;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+  padding: 0 20px;
 }
 
-.btn-home a {
-    background-color: #0b3e57;
-    color: white;
-    padding: 15px 30px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+/* --- CUADROS DE TEXTO --- */
+.text-box {
+  background-color: var(--fondo-claro);
+  border-left: 10px solid var(--amarillo-intenso);
+  padding: clamp(35px, 5vw, 50px) clamp(25px, 4vw, 40px);
+  border-radius: 25px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  flex: 1 1 500px;
 }
 
-.btn-home a:hover {
-    background-color: #066b635a;
+.text-box h2 {
+  color: var(--cafe);
+  font-size: clamp(1.8em, 3vw, 2.3em);
+  font-weight: 900;
+  margin-bottom: 20px;
 }
 
-/* Estilos para las secciones */
-.section-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    padding: 20px;
+.text-box p {
+  font-size: clamp(1em, 1.5vw, 1.15em);
+  line-height: 1.8;
 }
 
-.box {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    margin: 20px;
-    padding: 30px;
+/* --- LOGOS Y TÍTULOS --- */
+.logo-container {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
 }
 
-.box h2 {
-    font-size: 2.2em;
-    color: #0b3e57;
+.logo-img {
+  width: clamp(50px, 8vw, 70px);
+  height: auto;
+  display: inline-block;
 }
 
-.box p {
-    color: #333;
-    font-size: 1.2em;
-    line-height: 1.6;
-    margin-top: 20px;
+.titulo-img {
+  width: clamp(60px, 10vw, 100px);
+  height: auto;
+  display: inline-block;
+  margin-left: 20px;
+  vertical-align: middle;
 }
 
-.vision-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* --- IMÁGENES --- */
+.image-side {
+  flex: 1 1 500px;
+  min-height: 400px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
 }
 
-.vision-box .vision-content h2 {
-    font-size: 2.8em;
+.image-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
 }
 
-.vision-box .vision-content p {
-    font-size: 1.4em;
+.image-side:hover img {
+  transform: scale(1.05);
 }
 
-.vision-box .image-box img {
-    width: 120%;
-    height: auto;
+/* --- SECCIÓN CAUSAS (imagen izquierda, texto derecha) --- */
+#causas {
+  flex-direction: row;
 }
 
-
-.footer {
-    background-color: #f4f4f4;
-    padding: 40px;
-    text-align: center;
+/* --- FOOTER --- */
+footer {
+  text-align: center;
+  padding: clamp(30px, 5vw, 50px) 20px;
+  background-color: var(--cafe);
+  color: white;
+  border-top: 5px solid var(--amarillo-intenso);
+  font-weight: 600;
+  font-size: clamp(0.9em, 1.5vw, 1.1em);
+  letter-spacing: 0.5px;
 }
 
-.footer .btn {
-    background-color: #0b3e57;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    text-decoration: none;
+/* ============================================
+   RESPONSIVE DESIGN - MEDIA QUERIES
+   ============================================ */
+
+/* PANTALLAS MUY GRANDES (Desktop XL) */
+@media (min-width: 1400px) {
+  .content {
+    max-width: 1600px;
+  }
+  
+  section {
+    gap: 70px;
+  }
+  
+  .text-box {
+    flex: 1 1 600px;
+  }
+  
+  .image-side {
+    flex: 1 1 600px;
+    min-height: 450px;
+  }
 }
 
-.footer .btn:hover {
-    background-color: #066b637b;
+/* PANTALLAS GRANDES (Desktop) */
+@media (min-width: 1200px) {
+  section {
+    gap: 60px;
+  }
+  
+  .image-side {
+    min-height: 450px;
+  }
 }
 
-.social-icons a {
-    margin: 0 10px;
-    font-size: 1.8em;
-    color: #0b3e57;
-    transition: color 0.3s ease;
+/* PANTALLAS MEDIANAS (Tablet) */
+@media (max-width: 992px) {
+  .content {
+    padding: 90px 20px;
+  }
+  
+  section {
+    gap: 40px;
+  }
+  
+  .text-box, .image-side {
+    flex: 1 1 100%;
+    min-height: 350px;
+  }
+  
+  h1 {
+    padding: 60px 20px;
+    font-size: 2.5em;
+  }
+  
+  #quees {
+    padding: 100px 20px;
+    background-attachment: scroll;
+  }
+  
+  #causas {
+    flex-direction: column;
+  }
 }
 
-.social-icons a:hover {
-    color: #066b63;
-}
-
-.contact-icons {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.contact-icons a {
-    margin: 0 15px;
-    font-size: 1.8em;
-    color: #0b3e57;
-    transition: color 0.3s ease;
-}
-
-.contact-icons a:hover {
-    color: #066b63;
-}
-
-/* Estilos para el menú de hamburguesa en dispositivos pequeños */
+/* PANTALLAS PEQUEÑAS (Tablet pequeña y móvil grande) */
 @media (max-width: 768px) {
-    .navbar {
-        display: none; /* Ocultar el menú en pantallas pequeñas */
-        flex-direction: column;
-        align-items: center;
-        background-color: #0b3e57;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 100%;
-        border-top: 1px solid #a6a6a6;
-    }
-
-    .navbar.active {
-        display: flex; 
-    }
-
-    .navbar a {
-        padding: 15px;
-        font-size: 14px;
-        color: #a6a6a6;
-        width: 100%;
-        text-align: center;
-        border-top: 1px solid #444;
-    }
-
-    .navbar a:first-child {
-        border-top: none;
-    }
-
-    .hamburger {
-        display: block; 
-    }
-
-    .hamburger i {
-        color: white;
-        font-size: 30px;
-    }
+  .content {
+    padding: 80px 15px;
+  }
+  
+  section {
+    gap: 30px;
+    margin-bottom: 80px;
+  }
+  
+  .text-box {
+    padding: 30px 25px;
+    border-left: 8px solid var(--amarillo-intenso);
+  }
+  
+  .image-side {
+    min-height: 300px;
+  }
+  
+  h1 {
+    padding: 50px 15px;
+    font-size: 2em;
+  }
+  
+  #quees {
+    padding: 80px 15px;
+    margin-bottom: 80px;
+  }
+  
+  #quees h2 {
+    font-size: 2.2em;
+  }
+  
+  .menu-btn {
+    top: 15px;
+    left: 15px;
+    width: 40px;
+    height: 35px;
+  }
 }
 
-
-@media (max-width: 1200px) {
-    .navbar a {
-        font-size: 16px;
-    }
-
-    .box {
-        width: 90%;
-    }
-
-    .content.header h2 {
-        font-size: 2.5em;
-    }
-
-    .vision-box {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .vision-box .vision-content h2 {
-        font-size: 2.4em;
-    }
-
-    .vision-box .vision-content p {
-        font-size: 1.2em;
-    }
-
-    .vision-box .image-box img {
-        width: 100%;
-    }
-
-    .footer {
-        padding: 30px 20px;
-    }
-
-    .footer .btn {
-        font-size: 16px;
-    }
-
-    .social-icons a {
-        font-size: 1.6em;
-    }
-
-    .contact-icons a {
-        font-size: 1.6em;
-    }
+/* PANTALLAS MÓVILES (Teléfonos) */
+@media (max-width: 576px) {
+  .content {
+    padding: 70px 10px;
+  }
+  
+  section {
+    gap: 25px;
+    margin-bottom: 70px;
+  }
+  
+  .text-box {
+    padding: 25px 20px;
+    border-radius: 20px;
+    border-left: 6px solid var(--amarillo-intenso);
+  }
+  
+  .image-side {
+    min-height: 250px;
+    border-radius: 12px;
+  }
+  
+  h1 {
+    padding: 40px 10px;
+    font-size: 1.8em;
+    border-bottom: 6px solid var(--amarillo-intenso);
+  }
+  
+  #quees {
+    padding: 60px 10px;
+    margin-bottom: 60px;
+  }
+  
+  #quees h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+  
+  #quees p {
+    padding: 0 10px;
+    line-height: 1.7;
+  }
+  
+  .sidebar {
+    width: 240px;
+  }
+  
+  .sidebar a {
+    padding: 12px 20px;
+    font-size: 1em;
+  }
+  
+  .menu-btn {
+    top: 10px;
+    left: 10px;
+    width: 36px;
+    height: 32px;
+    padding: 8px;
+  }
+  
+  footer {
+    padding: 25px 10px;
+    font-size: 0.9em;
+  }
 }
 
-
-@media (max-width: 480px) {
-    .navbar a {
-        padding: 12px 18px;
-        font-size: 14px;
-    }
-
-    .content.header h2 {
-        font-size: 1.8em;
-    }
-
-    .btn-home a {
-        font-size: 14px;
-        padding: 10px 20px;
-    }
-
-    .section-container {
-        padding: 10px;
-    }
-
-    .box {
-        width: 95%;
-        padding: 20px;
-    }
-
-    .vision-box {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .vision-box .vision-content h2 {
-        font-size: 2em;
-    }
-
-    .vision-box .vision-content p {
-        font-size: 1.1em;
-    }
-
-    .vision-box .image-box img {
-        width: 100%;
-    }
-
-    .footer {
-        padding: 20px 10px;
-    }
-
-    .footer .btn {
-        font-size: 14px;
-        padding: 10px 20px;
-    }
-
-    .social-icons a {
-        font-size: 1.4em;
-    }
-
-    .contact-icons a {
-        font-size: 1.4em;
-    }
+/* PANTALLAS MUY PEQUEÑAS (Teléfonos pequeños) */
+@media (max-width: 400px) {
+  .content {
+    padding: 60px 8px;
+  }
+  
+  h1 {
+    font-size: 1.6em;
+    padding: 35px 8px;
+  }
+  
+  .text-box h2 {
+    font-size: 1.5em;
+  }
+  
+  .image-side {
+    min-height: 200px;
+  }
+  
+  .titulo-img {
+    width: 50px;
+    margin-left: 10px;
+  }
+  
+  #quees h2 {
+    font-size: 1.6em;
+  }
 }
